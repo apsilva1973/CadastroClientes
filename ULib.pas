@@ -19,12 +19,25 @@ uses System.Variants, SysUtils, Classes, Controls, Jpeg, IPPeerClient, IdBaseCom
 function BuscarCEPNoViaCEP(UmCEP: string): TStringStream;
 function LerResultadoCEP(var Logra,Numero,Compl,Bairro,Cidade,Estado,Pais:String;ResultadoCEP : TStringStream) : Boolean;
 function ValidaCPF( cpf: string ): boolean;
+Function ValidarEMail(aStr: string): Boolean;
 procedure EnviarEMail(const MailTo: string; Cliente : String; Path : String);
 procedure MontarXML (Nome,RG,CPF,Telefone,Email,CEP,Logra,Numero,Compl,Bairro,Cidade,Estado,Pais : String;Var Path:String);
 
 implementation
 
 
+
+Function ValidarEMail(aStr: string): Boolean;
+begin
+ aStr := Trim(UpperCase(aStr));
+ if Pos('@', aStr) > 1 then
+ begin
+   Delete(aStr, 1, pos('@', aStr));
+   Result := (Length(aStr) > 0) and (Pos('.', aStr) > 2);
+ end
+ else
+   Result := False;
+end;
 
 function ValidaCPF( cpf: string ): boolean;
 var

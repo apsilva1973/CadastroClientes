@@ -65,6 +65,7 @@ type
     procedure _Validar;
     procedure DBEdit6Exit(Sender: TObject);
     procedure DBEdit3Exit(Sender: TObject);
+    procedure DBEdit5Exit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -200,6 +201,15 @@ begin
     raise EErro.Create('CPF inválido.');
    end;
 
+end;
+
+procedure TfrmCadastroClientes.DBEdit5Exit(Sender: TObject);
+begin
+   if not ValidarEMail(DBEdit5.Text) then
+   begin
+    DBEdit5.SetFocus;
+    raise EErro.Create('E-Mail inválido.');
+   end;
 end;
 
 procedure TfrmCadastroClientes.DBEdit6Exit(Sender: TObject);

@@ -312,6 +312,7 @@ object frmCadastroClientes: TfrmCadastroClientes
       DataField = 'Email'
       DataSource = DataSource1
       TabOrder = 4
+      OnExit = DBEdit5Exit
     end
     object DBNavigator1: TDBNavigator
       Left = 13
