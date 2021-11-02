@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2021/11/02 07:58:30.734,=C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2021/11/02 07:59:00.579,C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\UCadCliente.pas=C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2021/11/02 07:59:00.579,C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\UCadCliente.dfm=C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\Unit3.dfm</Transaction>
+    <Transaction>2021/11/02 08:00:03.859,C:\Info\InfoSistemas.dproj=C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\Project3.dproj</Transaction>
+    <Transaction>2021/11/02 08:00:17.870,C:\Users\apsilva\Documents\Embarcadero\Studio\Projects\UCadCliente.pas=</Transaction>
+    <Transaction>2021/11/02 08:00:22.353,=C:\Info\Unit1.pas</Transaction>
+    <Transaction>2021/11/02 08:14:00.470,C:\Info\UCadClientes.pas=C:\Info\Unit1.pas</Transaction>
+    <Transaction>2021/11/02 08:14:00.470,C:\Info\UCadClientes.dfm=C:\Info\Unit1.dfm</Transaction>
+    <Transaction>2021/11/02 08:14:06.687,C:\Info\InfoSistemas.dproj=C:\Info\InfoSistemas.dproj</Transaction>
+    <Transaction>2021/11/02 09:19:21.535,=C:\Info\Unit1.pas</Transaction>
+    <Transaction>2021/11/02 09:19:36.173,C:\Info\ULib.pas=C:\Info\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
