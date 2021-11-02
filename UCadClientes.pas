@@ -88,17 +88,17 @@ begin
     DBEdit1.SetFocus;
     raise EErro.Create('Prencha o campo ' + DBEdit1.DataField );
   end;
-  if DBEdit2.Text = EmptyStr then
+  if (DBEdit2.Text = EmptyStr) or (DBEdit2.text = '         ') then
   begin
      DBEdit2.SetFocus;
      raise EErro.Create('Prencha o campo ' + DBEdit2.DataField );
   end;
-  if DBEdit3.Text = EmptyStr then
+  if (DBEdit3.Text = EmptyStr) or (DBEdit3.Text = '           ') then
   begin
     DBEdit3.SetFocus;
     raise EErro.Create('Prencha o campo ' + DBEdit3.DataField );
   end;
-  if DBEdit4.Text = EmptyStr then
+  if (DBEdit4.Text = EmptyStr) or (DbEdit4.text = '          ') then
   Begin
     DBEdit4.SetFocus;
     raise EErro.Create('Prencha o campo ' + DBEdit4.DataField );
