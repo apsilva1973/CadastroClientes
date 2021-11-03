@@ -180,7 +180,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         TabOrder = 1
         OnClick = btnBuscarCEPClick
       end
-      object DBEdit6: TDBEdit
+      object DBCEP: TDBEdit
         Left = 9
         Top = 29
         Width = 64
@@ -189,9 +189,9 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataField = 'CEP'
         DataSource = DataSource1
         TabOrder = 0
-        OnExit = DBEdit6Exit
+        OnExit = DBCEPExit
       end
-      object DBEdit7: TDBEdit
+      object DBLogra: TDBEdit
         Left = 114
         Top = 29
         Width = 311
@@ -201,7 +201,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataSource = DataSource1
         TabOrder = 2
       end
-      object DBEdit8: TDBEdit
+      object DBNumero: TDBEdit
         Left = 440
         Top = 29
         Width = 55
@@ -211,7 +211,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataSource = DataSource1
         TabOrder = 3
       end
-      object DBEdit9: TDBEdit
+      object DBCompl: TDBEdit
         Left = 501
         Top = 29
         Width = 164
@@ -221,7 +221,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataSource = DataSource1
         TabOrder = 4
       end
-      object DBEdit10: TDBEdit
+      object DBBairro: TDBEdit
         Left = 10
         Top = 75
         Width = 113
@@ -231,7 +231,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataSource = DataSource1
         TabOrder = 5
       end
-      object DBEdit11: TDBEdit
+      object DBLocalidade: TDBEdit
         Left = 129
         Top = 75
         Width = 145
@@ -241,7 +241,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataSource = DataSource1
         TabOrder = 6
       end
-      object DBEdit12: TDBEdit
+      object DBEstado: TDBEdit
         Left = 290
         Top = 74
         Width = 31
@@ -251,7 +251,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         DataSource = DataSource1
         TabOrder = 7
       end
-      object DBEdit13: TDBEdit
+      object DBPais: TDBEdit
         Left = 344
         Top = 74
         Width = 133
@@ -262,7 +262,7 @@ object frmCadastroClientes: TfrmCadastroClientes
         TabOrder = 8
       end
     end
-    object DBEdit1: TDBEdit
+    object DBNome: TDBEdit
       Left = 88
       Top = 29
       Width = 212
@@ -272,7 +272,7 @@ object frmCadastroClientes: TfrmCadastroClientes
       DataSource = DataSource1
       TabOrder = 0
     end
-    object DBEdit2: TDBEdit
+    object DBIdentidade: TDBEdit
       Left = 379
       Top = 29
       Width = 137
@@ -282,7 +282,7 @@ object frmCadastroClientes: TfrmCadastroClientes
       DataSource = DataSource1
       TabOrder = 1
     end
-    object DBEdit3: TDBEdit
+    object DBCPF: TDBEdit
       Left = 556
       Top = 29
       Width = 137
@@ -291,11 +291,11 @@ object frmCadastroClientes: TfrmCadastroClientes
       DataField = 'CPF'
       DataSource = DataSource1
       TabOrder = 2
-      OnExit = DBEdit3Exit
+      OnExit = DBCPFExit
     end
-    object DBEdit4: TDBEdit
+    object DBTelefone: TDBEdit
       Left = 88
-      Top = 74
+      Top = 70
       Width = 137
       Height = 21
       Color = clInfoBk
@@ -303,7 +303,7 @@ object frmCadastroClientes: TfrmCadastroClientes
       DataSource = DataSource1
       TabOrder = 3
     end
-    object DBEdit5: TDBEdit
+    object DBEmail: TDBEdit
       Left = 379
       Top = 70
       Width = 214
@@ -312,7 +312,7 @@ object frmCadastroClientes: TfrmCadastroClientes
       DataField = 'Email'
       DataSource = DataSource1
       TabOrder = 4
-      OnExit = DBEdit5Exit
+      OnExit = DBEmailExit
     end
     object DBNavigator1: TDBNavigator
       Left = 13
@@ -325,14 +325,14 @@ object frmCadastroClientes: TfrmCadastroClientes
       ShowHint = True
       TabOrder = 6
     end
-    object Button1: TButton
+    object btnEnviarEmail: TButton
       Left = 321
       Top = 286
       Width = 105
       Height = 49
       Caption = 'Enviar Email'
       TabOrder = 7
-      OnClick = Button1Click
+      OnClick = btnEnviarEmailClick
     end
     object StatusBar1: TStatusBar
       Left = 1

@@ -29,25 +29,25 @@ type
     ClientDataSet1: TClientDataSet;
     DataSource1: TDataSource;
     ClientDataSet1Nome: TStringField;
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
+    DBNome: TDBEdit;
+    DBIdentidade: TDBEdit;
     ClientDataSet1Logra: TStringField;
     ClientDataSet1Numero: TStringField;
     ClientDataSet1Bairro: TStringField;
     ClientDataSet1Estado: TStringField;
     ClientDataSet1Pais: TStringField;
-    DBEdit3: TDBEdit;
-    DBEdit4: TDBEdit;
-    DBEdit5: TDBEdit;
-    DBEdit6: TDBEdit;
+    DBCPF: TDBEdit;
+    DBTelefone: TDBEdit;
+    DBEmail: TDBEdit;
+    DBCEP: TDBEdit;
     ClientDataSet1CEP: TStringField;
-    DBEdit7: TDBEdit;
-    DBEdit8: TDBEdit;
-    DBEdit9: TDBEdit;
-    DBEdit10: TDBEdit;
-    DBEdit11: TDBEdit;
-    DBEdit12: TDBEdit;
-    DBEdit13: TDBEdit;
+    DBLogra: TDBEdit;
+    DBNumero: TDBEdit;
+    DBCompl: TDBEdit;
+    DBBairro: TDBEdit;
+    DBLocalidade: TDBEdit;
+    DBEstado: TDBEdit;
+    DBPais: TDBEdit;
     ClientDataSet1Compl: TStringField;
     ClientDataSet1Localidade: TStringField;
     ClientDataSet1CPF: TStringField;
@@ -55,17 +55,17 @@ type
     ClientDataSet1Telefone: TStringField;
     ClientDataSet1Email: TStringField;
     DBNavigator1: TDBNavigator;
-    Button1: TButton;
+    btnEnviarEmail: TButton;
     StatusBar1: TStatusBar;
     procedure btnBuscarCEPClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ClientDataSet1AfterPost(DataSet: TDataSet);
-    procedure Button1Click(Sender: TObject);
+    procedure btnEnviarEmailClick(Sender: TObject);
     procedure ClientDataSet1BeforePost(DataSet: TDataSet);
     procedure _Validar;
-    procedure DBEdit6Exit(Sender: TObject);
-    procedure DBEdit3Exit(Sender: TObject);
-    procedure DBEdit5Exit(Sender: TObject);
+    procedure DBCEPExit(Sender: TObject);
+    procedure DBCPFExit(Sender: TObject);
+    procedure DBEmailExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -84,35 +84,35 @@ implementation
 
 procedure TfrmCadastroClientes._Validar;
 begin
-    if DBEdit1.Text = EmptyStr then
+    if DBNome.Text = EmptyStr then
   begin
-    DBEdit1.SetFocus;
-    raise EErro.Create('Prencha o campo ' + DBEdit1.DataField );
+    DBNome.SetFocus;
+    raise EErro.Create('Prencha o campo ' + DBNome.DataField );
   end;
-  if (DBEdit2.Text = EmptyStr) or (DBEdit2.text = '         ') then
+  if (DBIdentidade.Text = EmptyStr) or (DBIdentidade.text = '         ') then
   begin
-     DBEdit2.SetFocus;
-     raise EErro.Create('Prencha o campo ' + DBEdit2.DataField );
+     DBIdentidade.SetFocus;
+     raise EErro.Create('Prencha o campo ' + DBIdentidade.DataField );
   end;
-  if (DBEdit3.Text = EmptyStr) or (DBEdit3.Text = '           ') then
+  if (DBCPF.Text = EmptyStr) or (DBCPF.Text = '           ') then
   begin
-    DBEdit3.SetFocus;
-    raise EErro.Create('Prencha o campo ' + DBEdit3.DataField );
+    DBCPF.SetFocus;
+    raise EErro.Create('Prencha o campo ' + DBCPF.DataField );
   end;
-  if (DBEdit4.Text = EmptyStr) or (DbEdit4.text = '          ') then
+  if (DBTelefone.Text = EmptyStr) or (DBTelefone.text = '          ') then
   Begin
-    DBEdit4.SetFocus;
-    raise EErro.Create('Prencha o campo ' + DBEdit4.DataField );
+    DBTelefone.SetFocus;
+    raise EErro.Create('Prencha o campo ' + DBTelefone.DataField );
   End;
-  if DBEdit5.Text = EmptyStr then
+  if DBEmail.Text = EmptyStr then
   Begin
-    DBEdit5.SetFocus;
-    raise EErro.Create('Prencha o campo ' + DBEdit5.DataField );
+    DBEmail.SetFocus;
+    raise EErro.Create('Prencha o campo ' + DBEmail.DataField );
   End;
-  if DBEdit6.Text = EmptyStr then
+  if DBCEP.Text = EmptyStr then
   Begin
-    DBEdit6.SetFocus;
-    raise EErro.Create('Prencha o campo ' + DBEdit6.DataField );
+    DBCEP.SetFocus;
+    raise EErro.Create('Prencha o campo ' + DBCEP.DataField );
   End;
 end;
 procedure TfrmCadastroClientes.btnBuscarCEPClick(Sender: TObject);
@@ -126,7 +126,7 @@ Var
  Pais  : String;
 begin
   Endereco := TStringStream.Create(Nil);
-  Endereco := BuscarCEPNoViaCEP(StringReplace(DBEdit6.EditText, '-', '', [rfReplaceAll]));
+  Endereco := BuscarCEPNoViaCEP(StringReplace(DBCEP.EditText, '-', '', [rfReplaceAll]));
 
   if  UTF8ToString(Endereco.DataString) = '{'#$A'  "erro": true'#$A'}'    then
    ShowMessage('CEP Invalido')
@@ -141,18 +141,18 @@ begin
                     Endereco);
 
 
-  DBEdit7.Text   := Logra;
-  DBEdit8.Text   := Numero;
-  DBEdit9.Text   := Compl;
-  DBEdit10.Text  := Bairro;
-  DBEdit11.Text  := Cidade;
-  DBEdit12.Text  := Estado;
-  DBEdit13.Text  := Pais;
+  DBLogra.Text   := Logra;
+  DBNumero.Text   := Numero;
+  DBCompl.Text   := Compl;
+  DBBairro.Text  := Bairro;
+  DBLocalidade.Text  := Cidade;
+  DBEstado.Text  := Estado;
+  DBPais.Text  := Pais;
 
 
 end;
 
-procedure TfrmCadastroClientes.Button1Click(Sender: TObject);
+procedure TfrmCadastroClientes.btnEnviarEmailClick(Sender: TObject);
 Var
  Path : String;
 begin
@@ -161,22 +161,22 @@ begin
  StatusBar1.Visible := True;
  Application.ProcessMessages;
  Path := extractfilepath(application.exename)+'Cadastro.xml';
-MontarXML (DBEdit1.Text,
-           DBEdit2.Text,
-           DBEdit3.Text,
-           DBEdit4.Text,
-           DBEdit5.Text,
-           DBEdit6.Text,
-           DBEdit7.Text,
-           DBEdit8.Text,
-           DBEdit9.Text,
-           DBEdit10.Text,
-           DBEdit11.Text,
-           DBEdit12.Text,
-           DBEdit13.Text,
+MontarXML (DBNome.Text,
+           DBIdentidade.Text,
+           DBCPF.Text,
+           DBTelefone.Text,
+           DBEmail.Text,
+           DBCEP.Text,
+           DBLogra.Text,
+           DBNumero.Text,
+           DBCompl.Text,
+           DBBairro.Text,
+           DBLocalidade.Text,
+           DBEstado.Text,
+           DBPais.Text,
            Path);
 
- EnviarEMail(DBEdit5.Text,DBEdit1.Text,Path);
+ EnviarEMail(DBEmail.Text,DBNome.Text,Path);
  StatusBar1.Visible := False;
 end;
 
@@ -185,7 +185,7 @@ begin
 
 
 
-   dbedit1.SetFocus;
+   DBNome.SetFocus;
 end;
 
 procedure TfrmCadastroClientes.ClientDataSet1BeforePost(DataSet: TDataSet);
@@ -193,26 +193,26 @@ begin
   _Validar;
 end;
 
-procedure TfrmCadastroClientes.DBEdit3Exit(Sender: TObject);
+procedure TfrmCadastroClientes.DBCPFExit(Sender: TObject);
 begin
-   if not ValidaCPF(DBEdit3.Text) then
+   if not ValidaCPF(DBCPF.Text) then
    begin
-    DBEdit3.SetFocus;
+    DBCPF.SetFocus;
     raise EErro.Create('CPF inválido.');
    end;
 
 end;
 
-procedure TfrmCadastroClientes.DBEdit5Exit(Sender: TObject);
+procedure TfrmCadastroClientes.DBEmailExit(Sender: TObject);
 begin
-   if not ValidarEMail(DBEdit5.Text) then
+   if not ValidarEMail(DBEmail.Text) then
    begin
-    DBEdit5.SetFocus;
+    DBEmail.SetFocus;
     raise EErro.Create('E-Mail inválido.');
    end;
 end;
 
-procedure TfrmCadastroClientes.DBEdit6Exit(Sender: TObject);
+procedure TfrmCadastroClientes.DBCEPExit(Sender: TObject);
 begin
 //  btnBuscarCEPClick(Self);
 end;
@@ -224,15 +224,15 @@ begin
    // Abre a tabela depois de criada.
    ClientDataSet1.Open;
 
-   DBEdit6.Field.EditMask:= '00000\-999;1;_'; // Formatação CEP
+   DBCEP.Field.EditMask:= '00000\-999;1;_'; // Formatação CEP
 
-   DBEdit3.Field.EditMask:= '000\.000\.000\-00;0;'; // Formatação CPF
+   DBCPF.Field.EditMask:= '000\.000\.000\-00;0;'; // Formatação CPF
 
-   DBEdit4  .Field.EditMask:= '\(00\)0000\-0000;0;'; // Foamatação Telefone
+   DBTelefone  .Field.EditMask:= '\(00\)0000\-0000;0;'; // Foamatação Telefone
 
-   DBEdit2.Field.EditMask:= '00\.000\.000\-0;0;';  // Formatação Identidicação
+   DBIdentidade.Field.EditMask:= '00\.000\.000\-0;0;';  // Formatação Identidicação
 
-   dbedit1.SetFocus;
+   DBNome.SetFocus;
 
 end;
 
